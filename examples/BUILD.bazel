@@ -1,0 +1,11 @@
+cc_binary(
+    name = "simple",
+    srcs = ["simple.cpp"],
+	deps = ["//grante:grante"],
+)
+
+cc_binary(
+    name = "learning",
+    srcs = ["learning.cpp"],
+	deps = ["//grante:grante"],
+)
