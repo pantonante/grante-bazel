@@ -85,4 +85,5 @@ cc_library(
         "@boost//:serialization",
         "@boost//:test",
     ],
+    copts = ["-std=c++17"]
 )
