@@ -1,8 +1,8 @@
-load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
 
 cc_library(
     name = "grante",
-    srcs = glob(["**/*.cpp"]), 
+    srcs = glob(["**/*.cpp"], exclude = ["**/*_test.cpp"]), 
     hdrs = glob(["**/*.h"]),
     visibility = ["//visibility:public"],
     deps = [
@@ -14,4 +14,33 @@ cc_library(
         "@boost//:test",
     ],
     copts = ["-std=c++17"]
+)
+
+cc_test(
+    name = "FactorGraph_test",
+    srcs = ["FactorGraph_test.cpp"],
+    copts = ["-Iexternal/gtest/include"],
+    deps = [
+        "@com_google_googletest//:gtest_main",
+        ":grante",
+    ],
+)
+
+cc_test(
+    name = "Conditioning_test",
+    srcs = ["Conditioning_test.cpp"],
+    copts = ["-Iexternal/gtest/include"],
+    deps = [
+        "@com_google_googletest//:gtest_main",
+        ":grante",
+    ],
+)
+cc_test(
+    name = "BeliefPropagation_test",
+    srcs = ["BeliefPropagation_test.cpp"],
+    copts = ["-Iexternal/gtest/include"],
+    deps = [
+        "@com_google_googletest//:gtest_main",
+        ":grante",
+    ],
 )

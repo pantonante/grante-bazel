@@ -20,3 +20,5 @@
 .bazelversion
 # User-specific .bazelrc
 user.bazelrc
+# Ignore doc build
+/doc/build

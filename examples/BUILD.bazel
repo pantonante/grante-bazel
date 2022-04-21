@@ -1,11 +1,53 @@
+cc_library(
+    name = "example_graph",
+    srcs = ["example_graph.h"],
+    deps = ["//grante"],
+)
+
 cc_binary(
     name = "simple",
     srcs = ["simple.cpp"],
-	deps = ["//grante:grante"],
+    deps = ["//grante"],
+)
+
+cc_binary(
+    name = "simple_data",
+    srcs = ["simple.data.cpp"],
+    deps = ["//grante"],
+)
+
+cc_binary(
+    name = "mle_training",
+    srcs = ["mle_training.cpp"],
+    deps = [
+        ":example_graph",
+        "//grante",
+    ],
 )
 
 cc_binary(
     name = "learning",
     srcs = ["learning.cpp"],
-	deps = ["//grante:grante"],
+    deps = [
+        ":example_graph",
+        "//grante",
+    ],
+)
+
+cc_binary(
+    name = "composite_likelihood_training",
+    srcs = ["composite_likelihood_training.cpp"],
+    deps = [
+        ":example_graph",
+        "//grante",
+    ],
+)
+
+cc_binary(
+    name = "contrastive_divergence_training",
+    srcs = ["contrastive_divergence_training.cpp"],
+    deps = [
+        ":example_graph",
+        "//grante",
+    ],
 )

@@ -240,6 +240,7 @@ protected:
 		ar & cardinalities;
 		ar & prod_cumcard;
 		ar & prod_card;
+    ar & is_data_dependent;
 		ar & w;
 		ar & data_size;
 	}

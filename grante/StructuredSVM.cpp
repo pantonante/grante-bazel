@@ -89,6 +89,7 @@ double StructuredSVM::TrainBMRM(StructuredSVMProblem* ssvm_prob,
 	// Best (lowest) true feasible objective
 	double J_best = std::numeric_limits<double>::infinity();
 	double gap = std::numeric_limits<double>::infinity();
+ std::vector<double> w_opt; 
 	for (unsigned int iter = 1; max_iter == 0 || iter <= max_iter; ++iter) {
 		std::cout << "BMRM iter " << iter << ", J_best " << J_best
 			<< ", gap " << gap << std::endl;
@@ -110,7 +111,7 @@ double StructuredSVM::TrainBMRM(StructuredSVMProblem* ssvm_prob,
 			J_best = J_t_exact;
 
 		// Minimize cutting plane model
-		std::vector<double> w_opt;
+		// std::vector<double> w_opt;
 		double pd_gap;
 		double eg_conv_tol = 0.1*gap;
 		std::vector<double> alpha_opt;
